@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4285F4" />
+      <stop offset="100%" stop-color="#34A853" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="16" fill="url(#gradient)" />
+  <g fill="white">
+    <!-- Speedometer dial -->
+    <circle cx="64" cy="64" r="40" fill="none" stroke="white" stroke-width="4" />
+    <circle cx="64" cy="64" r="4" fill="white" />
+    
+    <!-- Speedometer needle -->
+    <path d="M64,64 L64,30" stroke="white" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Performance bars -->
+    <rect x="30" y="80" width="10" height="20" rx="2" />
+    <rect x="45" y="70" width="10" height="30" rx="2" />
+    <rect x="60" y="75" width="10" height="25" rx="2" />
+    <rect x="75" y="65" width="10" height="35" rx="2" />
+    <rect x="90" y="85" width="10" height="15" rx="2" />
+  </g>
+</svg>

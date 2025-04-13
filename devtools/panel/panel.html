@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Insights Panel</title>
+  <link rel="stylesheet" href="panel.css">
+  <link rel="stylesheet" href="/modules/ui/waterfall-chart.css">
+</head>
+
+<body>
+  <div class="panel-container">
+    <header class="panel-header">
+      <div class="logo-section">
+        <img src="/assets/icons/icon16.png" alt="Performance Insights Logo" class="logo">
+        <h1>Performance Insights</h1>
+      </div>
+      <div class="controls-section">
+        <button id="refresh-btn" class="control-button" title="Refresh Analysis">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 4v6h-6"></path>
+            <path d="M1 20v-6h6"></path>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"></path>
+            <path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"></path>
+          </svg>
+        </button>
+        <button id="export-btn" class="control-button" title="Export Data">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </button>
+        <button id="settings-btn" class="control-button" title="Settings">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="panel-content">
+      <div class="metrics-dashboard">
+        <h2>Performance Metrics</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-title">Page Load Time</div>
+              <div class="metric-info" title="Time from navigation start to load event">ⓘ</div>
+            </div>
+            <div id="page-load-time" class="metric-value">-</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-title">DOMContentLoaded</div>
+              <div class="metric-info" title="Time to DOMContentLoaded event">ⓘ</div>
+            </div>
+            <div id="dom-content-loaded" class="metric-value">-</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-title">First Contentful Paint</div>
+              <div class="metric-info" title="Time when the browser renders the first bit of content">ⓘ</div>
+            </div>
+            <div id="first-contentful-paint" class="metric-value">-</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-title">Largest Contentful Paint</div>
+              <div class="metric-info" title="Time when the largest content element is rendered">ⓘ</div>
+            </div>
+            <div id="largest-contentful-paint" class="metric-value">-</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-title">Time to Interactive</div>
+              <div class="metric-info" title="Time when the page becomes fully interactive">ⓘ</div>
+            </div>
+            <div id="time-to-interactive" class="metric-value">-</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-title">Total Blocking Time</div>
+              <div class="metric-info" title="Total time spent blocking the main thread during page load">ⓘ</div>
+            </div>
+            <div id="total-blocking-time" class="metric-value">-</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-title">Requests</div>
+              <div class="metric-info" title="Total number of HTTP requests made">ⓘ</div>
+            </div>
+            <div id="request-count" class="metric-value">-</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-title">Transfer Size</div>
+              <div class="metric-info" title="Total size of all resources transferred">ⓘ</div>
+            </div>
+            <div id="transfer-size" class="metric-value">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="waterfall-section">
+        <div class="section-header">
+          <h2>Resource Waterfall</h2>
+          <div class="section-controls">
+            <div class="filter-control">
+              <label for="resource-filter">Filter:</label>
+              <select id="resource-filter">
+                <option value="all">All Resources</option>
+                <option value="document">Document</option>
+                <option value="stylesheet">CSS</option>
+                <option value="script">JavaScript</option>
+                <option value="image">Images</option>
+                <option value="font">Fonts</option>
+                <option value="xhr">XHR/Fetch</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="zoom-controls">
+              <button id="zoom-in-btn" class="zoom-button" title="Zoom In">+</button>
+              <button id="zoom-out-btn" class="zoom-button" title="Zoom Out">-</button>
+              <button id="zoom-reset-btn" class="zoom-button" title="Reset Zoom">Reset</button>
+            </div>
+          </div>
+        </div>
+        <div id="waterfall-container" class="waterfall-container">
+          <div id="waterfall-chart" class="waterfall-chart"></div>
+        </div>
+      </div>
+
+      <div class="bottlenecks-section">
+        <h2>Bottlenecks & Suggestions</h2>
+        <div id="bottlenecks-container" class="bottlenecks-container">
+          <div class="empty-state">
+            <p>No bottlenecks detected yet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="settings-panel" class="settings-panel">
+      <div class="settings-header">
+        <h2>Settings</h2>
+        <button id="close-settings-btn" class="close-button">×</button>
+      </div>
+      <div class="settings-content">
+        <div class="settings-group">
+          <h3>General</h3>
+          <div class="setting-item">
+            <label class="toggle-switch">
+              <input type="checkbox" id="auto-analysis-toggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <div class="setting-label">Auto-analyze on page load</div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>Network Throttling</h3>
+          <div class="setting-item">
+            <select id="network-throttling">
+              <option value="none">No throttling</option>
+              <option value="slow-3g">Slow 3G</option>
+              <option value="fast-3g">Fast 3G</option>
+              <option value="regular-4g">Regular 4G</option>
+            </select>
+            <div class="setting-label">Simulate network conditions</div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>Metrics Display</h3>
+          <div class="setting-item">
+            <label class="checkbox-label">
+              <input type="checkbox" id="show-page-load" checked>
+              <span class="checkbox-custom"></span>
+              <span>Page Load Time</span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label class="checkbox-label">
+              <input type="checkbox" id="show-dom-content-loaded" checked>
+              <span class="checkbox-custom"></span>
+              <span>DOMContentLoaded</span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label class="checkbox-label">
+              <input type="checkbox" id="show-fcp" checked>
+              <span class="checkbox-custom"></span>
+              <span>First Contentful Paint</span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label class="checkbox-label">
+              <input type="checkbox" id="show-lcp" checked>
+              <span class="checkbox-custom"></span>
+              <span>Largest Contentful Paint</span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label class="checkbox-label">
+              <input type="checkbox" id="show-tti" checked>
+              <span class="checkbox-custom"></span>
+              <span>Time to Interactive</span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label class="checkbox-label">
+              <input type="checkbox" id="show-tbt" checked>
+              <span class="checkbox-custom"></span>
+              <span>Total Blocking Time</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>Suggestion Level</h3>
+          <div class="setting-item">
+            <select id="suggestion-level">
+              <option value="basic">Basic (Beginner-friendly)</option>
+              <option value="intermediate" selected>Intermediate</option>
+              <option value="advanced">Advanced (Technical)</option>
+            </select>
+            <div class="setting-label">Level of detail in suggestions</div>
+          </div>
+        </div>
+      </div>
+      <div class="settings-footer">
+        <button id="save-settings-btn" class="primary-button">Save Settings</button>
+        <button id="reset-settings-btn" class="secondary-button">Reset to Default</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load third-party libraries -->
+  <script src="/lib/chart.min.js"></script>
+
+  <!-- Load modules -->
+  <script src="/modules/ui/waterfall-chart.js"></script>
+  <script src="/modules/ui/metrics-dashboard.js"></script>
+  <script src="/modules/ui/bottleneck-list.js"></script>
+  <script src="/modules/ui/settings-panel.js"></script>
+
+  <!-- Load main panel script -->
+  <script src="panel.js"></script>
+</body>
+
+</html>

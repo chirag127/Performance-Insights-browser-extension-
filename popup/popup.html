@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Insights</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>Performance Insights</h1>
+    </header>
+    
+    <div class="popup-content">
+      <div class="status-section">
+        <div id="status-indicator" class="status-indicator"></div>
+        <p id="status-message">Waiting for page load...</p>
+      </div>
+      
+      <div class="metrics-summary">
+        <h2>Quick Metrics</h2>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Page Load</div>
+            <div id="page-load-time" class="metric-value">-</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">FCP</div>
+            <div id="fcp-time" class="metric-value">-</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">LCP</div>
+            <div id="lcp-time" class="metric-value">-</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Requests</div>
+            <div id="request-count" class="metric-value">-</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottlenecks-summary">
+        <h2>Bottlenecks</h2>
+        <div id="bottlenecks-list" class="bottlenecks-list">
+          <p class="empty-state">No bottlenecks detected yet.</p>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="popup-footer">
+      <button id="open-devtools-btn" class="primary-button">Open DevTools Panel</button>
+      <button id="settings-btn" class="secondary-button">Settings</button>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

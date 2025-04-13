@@ -1,0 +1,21 @@
+{
+  "name": "performance-insights",
+  "version": "1.0.0",
+  "description": "A browser extension for detecting website performance bottlenecks",
+  "author": "Chirag Singhal",
+  "license": "MIT",
+  "scripts": {
+    "build": "echo \"No build step required\"",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "canvas": "^3.1.0",
+    "chart.js": "^4.4.0",
+    "d3": "^7.8.5"
+  }
+}
