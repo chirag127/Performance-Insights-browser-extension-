@@ -1,51 +1,58 @@
 name: CI
 
-# Controls when the action will run.
-# For GITHUB_TOKEN, read permissions are granted by default. 
-# Write permissions must be explicitly enabled.
+# Control when the workflow will run
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # build job
-  build:  
-    # The type of runner that the job will run on.
+  # This job builds the extension and runs tests
+  build_and_test:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job.
-    # Steps may include the use of an action, a built-in Docker action, or a script.
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository into the temporary GitHub Actions runner.
+      # Checks-out your repository into the worker to run tests
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Setup Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'npm' # Cache npm dependencies
 
+      # Install dependencies using npm
       - name: Install Dependencies
         run: npm ci
 
-      - name: Lint with Biome
-        run: npx @biomejs/biome lint --apply
+      # Install Biome (linter/formatter) and run checks
+      # Assuming Biome is used for linting/formatting as per Apex standards for frontend
+      - name: Install Biome
+        run: npm install -g @biomejs/biome
 
-      - name: Format with Biome
-        run: npx @biomejs/biome format --apply
+      - name: Lint and Format Check
+        run: biome check --apply --diagnostic-level=warn
 
-      - name: Build Project
+      # Run Vitest for unit tests
+      # Assuming Vitest is used for unit testing as per Apex standards for frontend
+      - name: Run Unit Tests
+        run: npm test
+
+      # Optional: Build the extension for artifact storage
+      - name: Build Extension
         run: npm run build
+        env:
+          NODE_ENV: production
 
-      - name: Run Vitest
-        run: npm run test:unit
-
-      - name: Upload Artifacts
+      # Archive build artifacts (optional, but good practice for distribution)
+      - name: Archive Production Build
         uses: actions/upload-artifact@v4
         with:
-          name: web-performance-monitor-extension
-          path: dist/
+          name: browser-extension-build
+          path: dist # Or wherever your build output is located
