@@ -1,0 +1,25 @@
+badges:
+  - name: build-status
+    image: https://img.shields.io/github/actions/workflow/user/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension/ci.yml?style=flat-square&logo=github
+    url: https://github.com/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension/actions/workflows/ci.yml
+  - name: code-coverage
+    image: https://img.shields.io/codecov/c/github/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension?style=flat-square&logo=codecov
+    url: https://codecov.io/gh/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension
+  - name: tech-stack-typescript
+    image: https://img.shields.io/badge/TypeScript-007acc?style=flat-square&logo=typescript&logoColor=white
+    url: https://www.typescriptlang.org/
+  - name: tech-stack-vite
+    image: https://img.shields.io/badge/Vite-6449ff?style=flat-square&logo=vite&logoColor=white
+    url: https://vitejs.dev/
+  - name: tech-stack-tauri
+    image: https://img.shields.io/badge/Tauri-f2625f?style=flat-square&logo=tauri&logoColor=white
+    url: https://tauri.app/
+  - name: lint-biome
+    image: https://img.shields.io/badge/Biome-FF0080?style=flat-square&logo=biome&logoColor=white
+    url: https://biomejs.dev/
+  - name: license
+    image: https://img.shields.io/badge/License-CC BY--NC 4.0-red?style=flat-square&logo=creativecommons
+    url: https://creativecommons.org/licenses/by-nc/4.0/
+  - name: github-stars
+    image: https://img.shields.io/github/stars/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension?style=flat-square&logo=github
+    url: https://github.com/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension/stargazers
