@@ -1,25 +1,19 @@
 badges:
-  - name: build-status
-    image: https://img.shields.io/github/actions/workflow/user/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension/ci.yml?style=flat-square&logo=github
-    url: https://github.com/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension/actions/workflows/ci.yml
-  - name: code-coverage
-    image: https://img.shields.io/codecov/c/github/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension?style=flat-square&logo=codecov
-    url: https://codecov.io/gh/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension
-  - name: tech-stack-typescript
-    image: https://img.shields.io/badge/TypeScript-007acc?style=flat-square&logo=typescript&logoColor=white
-    url: https://www.typescriptlang.org/
-  - name: tech-stack-vite
-    image: https://img.shields.io/badge/Vite-6449ff?style=flat-square&logo=vite&logoColor=white
-    url: https://vitejs.dev/
-  - name: tech-stack-tauri
-    image: https://img.shields.io/badge/Tauri-f2625f?style=flat-square&logo=tauri&logoColor=white
-    url: https://tauri.app/
-  - name: lint-biome
-    image: https://img.shields.io/badge/Biome-FF0080?style=flat-square&logo=biome&logoColor=white
-    url: https://biomejs.dev/
-  - name: license
-    image: https://img.shields.io/badge/License-CC BY--NC 4.0-red?style=flat-square&logo=creativecommons
-    url: https://creativecommons.org/licenses/by-nc/4.0/
-  - name: github-stars
-    image: https://img.shields.io/github/stars/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension?style=flat-square&logo=github
-    url: https://github.com/chirag127/VelocityRay-Web-Performance-Analyzer-Browser-Extension/stargazers
+  - name: "Build Status"
+    img: "https://img.shields.io/github/actions/workflow/status/chirag127/WebPerf-Insight-Real-Time-Performance-Analyzer-Browser-Extension/ci.yml?style=flat-square"
+    url: "https://github.com/chirag127/WebPerf-Insight-Real-Time-Performance-Analyzer-Browser-Extension/actions/workflows/ci.yml"
+  - name: "Code Coverage"
+    img: "https://img.shields.io/codecov/c/github/chirag127/WebPerf-Insight-Real-Time-Performance-Analyzer-Browser-Extension?style=flat-square"
+    url: "https://codecov.io/github/chirag127/WebPerf-Insight-Real-Time-Performance-Analyzer-Browser-Extension"
+  - name: "JavaScript Version"
+    img: "https://img.shields.io/badge/javascript-007ACC?style=flat-square&logo=javascript&logoColor=white"
+    url: "https://github.com/chirag127/WebPerf-Insight-Real-Time-Performance-Analyzer-Browser-Extension"
+  - name: "Package Manager"
+    img: "https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white"
+    url: "https://www.npmjs.com/package/npm"
+  - name: "License: CC BY-NC 4.0"
+    img: "https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square"
+    url: "https://creativecommons.org/licenses/by-nc/4.0/"
+  - name: "GitHub Stars"
+    img: "https://img.shields.io/github/stars/chirag127/WebPerf-Insight-Real-Time-Performance-Analyzer-Browser-Extension?style=flat-square&logo=github"
+    url: "https://github.com/chirag127/WebPerf-Insight-Real-Time-Performance-Analyzer-Browser-Extension/stargazers"
